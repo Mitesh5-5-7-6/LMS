@@ -1,12 +1,16 @@
+import { useParams } from 'react-router-dom';
+
 //Images
 import SchooleImage from '../../assets/images/SchoolImage.jpeg';
 import WelcomeImage from '../../assets/images/WelcomeImage.png';
 import SchoolLogo from '../../assets/images/SchoolLogo.png';
 
 //components
+import LoginForm from '../../components/auth/LoginForm'
 import SignupForm from '../../components/auth/SignupForm';
 
 const Auth = () => {
+    const { name } = useParams();
     return (
         <div className='flex w-full h-screen bg-[var(--color-1)] fixed'>
             <div
@@ -17,7 +21,8 @@ const Auth = () => {
                     <img src={SchoolLogo} alt="Logo" className='w-[40px]' />
                 </div>
 
-                <SignupForm />
+                {name === "login" && <LoginForm />}
+                {name === "register" && <SignupForm />}
 
             </div>
             <div className='w-1/2'>
