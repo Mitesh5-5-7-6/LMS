@@ -7,7 +7,7 @@ import * as Yup from "yup";
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Timestamp, addDoc, collection } from "firebase/firestore";
-import { auth, fireDB } from "../../firebaseFile/Firebase";
+import { auth, fireDB } from "../../FirebaseFile/firebase";
 
 import myContext from "../../context/myContext";
 
