@@ -13,8 +13,10 @@ import Mystate from './context/myState';
 import { Toaster } from "react-hot-toast";
 
 import Layout from './js/Layout';
+
 import { ProtectedRouteForAdmin } from './protectedRoute/ProtectedRouteForAdmin';
-import { ProtectedRouteForTeacherOrAdmin } from './protectedRoute/ProtectedRouteForTeacherOrAdmin';
+import { ProtectedRouteForTeacher } from './protectedRoute/ProtectedRouteForTeacher';
+import { ProtectedRouteForStudent } from './protectedRoute/ProtectedRouteForStudent';
 
 const App = () => {
   return (
@@ -35,12 +37,15 @@ const App = () => {
                   <Dashboard />
                 </ProtectedRouteForAdmin>} />
 
-              <Route path="/student" element={<Student />} />
+              <Route path="/student" element={
+                <ProtectedRouteForStudent>
+                  <Student />
+                </ProtectedRouteForStudent>} />
 
               <Route path="/teacher" element={
-                <ProtectedRouteForTeacherOrAdmin>
+                <ProtectedRouteForTeacher>
                   <Teacher />
-                </ProtectedRouteForTeacherOrAdmin>} />
+                </ProtectedRouteForTeacher>} />
 
             </Route>
           </Route>

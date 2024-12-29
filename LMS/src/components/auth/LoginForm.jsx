@@ -35,11 +35,10 @@ const LoginForm = () => {
                 localStorage.setItem("users", JSON.stringify(user));
                 toast.success("User Logged in Successfully!");
 
-                if (user.role === 'Admin') navigate('/dashboard');
-                else if (user.role === 'Student') navigate('/student');
-                else if (user.role === 'Teacher') navigate('/teacher');
+                if (user?.role === 'Admin') navigate('/dashboard');
+                else if (user?.role === 'Student') navigate('/student');
+                else if (user?.role === 'Teacher') navigate('/teacher');
                 else navigate('/login');
-
             }
         } catch (error) {
             toast.error(error.message);

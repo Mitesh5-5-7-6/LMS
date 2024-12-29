@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 
-export const ProtectedRouteForTeacherOrAdmin = ({ children }) => {
+export const ProtectedRouteForTeacher = ({ children }) => {
     const user = JSON.parse(localStorage.getItem("users"));
 
     if (user?.role === 'Teacher' || user?.role === 'Admin') {

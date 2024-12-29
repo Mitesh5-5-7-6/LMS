@@ -1,0 +1,12 @@
+.info {
+    color: var(--white);
+    padding-left: 20px;
+    font-size: var(--head-2-semi-bold);
+}
+
+.inner-info {
+    color: var(--white);
+    padding-left: 10px;
+    font-size: var(--head-2-semi-bold);
+    font-weight: var(--head-2-semi-bold);
+}
