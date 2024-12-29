@@ -1,18 +1,24 @@
-import React from 'react';
 import { Routes, Route } from "react-router-dom";
 import './App.css';
 
-import Login from './pages/auth/Login.jsx';
+//components
+import SignupForm from './components/auth/SignupForm';
+
+import Mystate from './context/myState';
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
     <>
-      <Routes>
+      <Mystate>
+        <Routes>
 
-        <Route path="/:name" element={<Login />} />
-        <Route path="*" element={<Login />} />
+          <Route path="/signup" element={<SignupForm />} />
 
-      </Routes>
+        </Routes>
+
+        <Toaster />
+      </Mystate>
     </>
   );
 };
