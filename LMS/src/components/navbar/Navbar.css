@@ -1,0 +1,12 @@
+.nav-container {
+    background-color: var(--color-1);
+    border-bottom: 5px solid var(--color-2);
+    box-shadow: 0px 10px 5px var(--color-2-op);
+    z-index: 9;
+}
+
+.user {
+    color: var(--color-t2);
+    font-size: var(--head-2-size);
+    font-weight: var(--head-2-semi-bold);
+}

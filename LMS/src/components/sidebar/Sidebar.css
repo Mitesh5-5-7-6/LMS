@@ -1,0 +1,91 @@
+.sidebar-container {
+    padding: 80px 0 14px 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-1);
+    border-right: 5px solid var(--color-2);
+    box-shadow: 0px 10px 5px var(--color-2-op);
+}
+
+#shrink-false {
+    width: 25vw;
+}
+
+.head-container {
+    padding-right: 20px;
+    padding-bottom: 14px;
+    justify-content: space-between;
+}
+
+.side-head {
+    color: var(--color-3);
+    font-size: var(--head-2-size);
+    font-weight: var(--head-2-semi-bold);
+}
+
+#shrink-btn-true {
+    margin-left: 1.5px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.side-scroll {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.side-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.side-scroll::-webkit-scrollbar-track {
+    margin-top: 0px !important;
+    background-color: var(--color-1);
+    margin-top: 60px;
+    border: none;
+    border-radius: 4px;
+}
+
+.side-scroll::-webkit-scrollbar-thumb {
+    width: 6px;
+    background-color: var(--color-3);
+    border: none;
+    border-radius: 4px;
+}
+
+.sidebar-button {
+    margin: 0 20px 6px 0;
+    padding: 6px 6px 6px 6px;
+    border: none;
+    border-radius: 4px;
+}
+
+.sidebar-button-logo {
+    width: 20px;
+    height: 20px;
+}
+
+.sidebar-button-label {
+    padding-left: 12px;
+    color: var(--color-t2);
+    font-size: var(--sub-1-size);
+    font-weight: var(--sub-1-medium);
+}
+
+.active {
+    .sidebar-button {
+        background-color: var(--color-2);
+        box-shadow: 0px 4px 16px var(--color-2);
+
+        .sidebar-button-label {
+            color: var(--color-3);
+        }
+    }
+}
+
+.active {
+    .sidebar-button-logo {
+        filter: invert(23%) sepia(44%) saturate(2000%) hue-rotate(322deg) brightness(105%) contrast(101%);
+    }
+}
