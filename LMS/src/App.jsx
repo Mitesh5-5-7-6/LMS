@@ -3,6 +3,7 @@ import './App.css';
 
 //components
 import SignupForm from './components/auth/SignupForm';
+import Login from './pages/auth/Auth'
 
 import Mystate from './context/myState';
 import { Toaster } from "react-hot-toast";
@@ -13,6 +14,7 @@ const App = () => {
       <Mystate>
         <Routes>
 
+          <Route path="/:name" element={<Login />} />
           <Route path="/signup" element={<SignupForm />} />
 
         </Routes>
