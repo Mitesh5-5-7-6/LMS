@@ -1,0 +1,200 @@
+/* For all the pages displayed inside home page and scroll properties */
+
+.display-container {
+    padding-top: 60px;
+    padding-bottom: 20px;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.display-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.display-container::-webkit-scrollbar-track {
+    margin-top: 192px;
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+}
+
+.display-container::-webkit-scrollbar-thumb {
+    width: 6px;
+    background-color: var(--color-3);
+    border: none;
+    border-radius: 4px;
+}
+
+
+/* For all the containers showing illussion of overlapping the display title of pages inside home page */
+.display-mid {
+    margin-top: -82px;
+}
+
+
+/* For all the containers basic structure present inside any page */
+.container {
+    margin: 20px 20px 0 20px;
+}
+
+.inner-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    background-color: var(--color-2);
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 4px 16px var(--color-2);
+}
+
+.container-title {
+    padding-left: 20px;
+    color: var(--color-3);
+    font-size: var(--head-2-size);
+    font-weight: var(--head-2-medium);
+}
+
+.container-title-2 {
+    padding-left: 20px;
+    color: var(--color-3);
+    font-size: var(--sub-1-size);
+    font-weight: var(--head-2-medium);
+}
+
+.container-title-sub {
+    margin-left: auto;
+    padding-right: 20px;
+    align-items: center;
+}
+
+.container-title-sub-label {
+    color: var(--color-t1);
+    font-size: var(--sub-1-size);
+    font-weight: var(--sub-1-medium);
+}
+
+.container-title-sub-value,
+.graph-sub-value {
+    padding-left: 20px;
+    color: var(--color-t2);
+    font-family: 'Lora', sans-serif;
+    font-weight: var(--sub-1-semi-bold);
+}
+
+
+/* table container css */
+.table-container {
+    margin: 0 20px 0 20px;
+}
+
+.table {
+    width: 100%;
+}
+
+.table-head th {
+    padding-left: 20px;
+    padding-right: 20px;
+    color: var(--color-t1);
+    font-size: var(--sub-1-size);
+    font-weight: var(--sub-1-semi-bold);
+    border-bottom: 1px solid var(--color-t1);
+}
+
+.table tr {
+    height: 36px;
+}
+
+.table td {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    color: var(--color-t2);
+    font-size: var(--sub-2-size);
+    font-weight: var(--sub-2-semi-bold);
+    border-bottom: 1px solid var(--color-t1);
+}
+
+.table-col-25 {
+    width: 1%;
+    text-align: center !important;
+}
+
+.table-col-50 {
+    width: 26%;
+    text-align: left !important;
+}
+
+/* table edit button css */
+.table-edit-btn {
+    padding: 0px 20px;
+    margin-right: 10px;
+    width: 100%;
+    color: var(--white);
+    font-size: var(--sub-2-size);
+    font-weight: var(--sub-2-semi-bold);
+    border: none;
+    border-radius: 5px;
+}
+
+.table-edit-btn:hover {
+    color: var(--alertYellow);
+}
+
+.table-edit-btn:active {
+    color: var(--alertYellow);
+    background-color: var(--backgroundColor);
+    border: 2px solid var(--alertYellow);
+}
+
+/* table delete button css */
+.table-delete-btn {
+    padding: 0px 20px;
+    width: 100%;
+    color: var(--white);
+    font-size: var(--sub-2-size);
+    font-weight: var(--sub-2-semi-bold);
+    border: none;
+    border-radius: 5px;
+}
+
+.table-delete-btn:hover {
+    color: var(--alertRed);
+}
+
+.table-delete-btn:active {
+    color: var(--alertRed);
+    background-color: var(--backgroundColor);
+    border: 2px solid var(--alertRed);
+}
+
+@media only screen and (max-width: 1146px) {
+
+    .table th,
+    .table td {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+
+/* radio-btn */
+
+.radio-field-container {
+    display: inline-flex;
+}
+
+.radio-field-label {
+    color: var(--color-t2);
+    font-size: var(--sub-2-size);
+    font-weight: var(--sub-2-semi-bold);
+    margin-right: 15px;
+}
+
+input[type="radio"] {
+    margin-right: 2px;
+    accent-color: var(--color-2);
+}
