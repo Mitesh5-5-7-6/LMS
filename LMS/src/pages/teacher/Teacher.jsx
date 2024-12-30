@@ -4,6 +4,7 @@ import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 import MyContext from "../../context/myContext";
+import Loader from '../../components/loader/Loader';
 
 const UserInfo = lazy(() => import("../../components/userInfo/UserInfo"));
 const TeacherTable = lazy(() => import("../../components/userInfoTable/TeacherTable"));
@@ -19,13 +20,13 @@ const Teacher = () => {
                 <p className='display-title-head'>Teacher Info</p>
             </div>
             <div className='display-mid'>
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<Loader />}>
                     {user?.role === 'Teacher' &&
                         <UserInfo data={user} />
                     }
                 </Suspense>
             </div>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loader />}>
                 {user?.role === 'Admin' &&
                     <TeacherTable getAllUser={getAllUser} Skeleton={Skeleton} />
                 }
