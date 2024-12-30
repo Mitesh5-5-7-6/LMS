@@ -30,15 +30,13 @@ const LoginForm = () => {
             const q = query(collection(fireDB, "users"), where("uid", "==", users.user.uid));
             const querySnapshot = await getDocs(q);
             let user = querySnapshot.docs.map(doc => doc.data())[0];
-
             if (user) {
                 localStorage.setItem("users", JSON.stringify(user));
-                toast.success("User Logged in Successfully!");
-
-                if (user?.role === 'Admin') navigate('/home');
-                else if (user?.role === 'Student') navigate('/home');
-                else if (user?.role === 'Teacher') navigate('/home');
+                if (user?.role === 'Admin') navigate('/home/dashboard');
+                else if (user?.role === 'Student') navigate('/home/student');
+                else if (user?.role === 'Teacher') navigate('/home/teacher');
                 else navigate('/login');
+                toast.success("User Logged in Successfully!");
             }
         } catch (error) {
             toast.error(error.message);
