@@ -1,13 +1,14 @@
+import React, { lazy } from 'react'
+
 import { Outlet } from 'react-router-dom'
 import './Home.css'
 
 import WelcomeImageBG from '../../assets/images/WelcomeImage.png'
 
-import Navbar from '../../components/navbar/Navbar.jsx'
-import Sidebar from '../../components/sidebar/Sidebar.jsx'
+const Navbar = lazy(() => import("../../components/navbar/Navbar"));
+const Sidebar = lazy(() => import("../../components/sidebar/Sidebar"))
 
 const Home = () => {
-
     return (
         <>
             <div className="h-screen bg-cover bg-no-repeat" style={{ backgroundImage: `url(${WelcomeImageBG})` }}>

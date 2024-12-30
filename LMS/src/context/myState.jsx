@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MyContext from './myContext';
 
 import { query, collection, orderBy, getDocs } from "firebase/firestore";

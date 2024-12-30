@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import toast from "react-hot-toast";
 import { useNavigate, NavLink } from 'react-router-dom';
 
@@ -35,9 +35,9 @@ const LoginForm = () => {
                 localStorage.setItem("users", JSON.stringify(user));
                 toast.success("User Logged in Successfully!");
 
-                if (user?.role === 'Admin') navigate('/dashboard');
-                else if (user?.role === 'Student') navigate('/student');
-                else if (user?.role === 'Teacher') navigate('/teacher');
+                if (user?.role === 'Admin') navigate('/home');
+                else if (user?.role === 'Student') navigate('/home');
+                else if (user?.role === 'Teacher') navigate('/home');
                 else navigate('/login');
             }
         } catch (error) {

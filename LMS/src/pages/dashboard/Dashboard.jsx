@@ -1,11 +1,11 @@
-import { useContext } from 'react'
+import React, { lazy, Suspense, useContext } from 'react'
 
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 import MyContext from "../../context/myContext";
 
-import AdminTable from '../../components/userInfoTable/AdminTable';
+const AdminTable = lazy(() => import('../../components/userInfoTable/AdminTable'));
 
 const Dashboard = () => {
 
@@ -18,7 +18,9 @@ const Dashboard = () => {
             </div>
 
             <div className='display-mid'>
-                <AdminTable getAllUser={getAllUser} Skeleton={Skeleton} />
+                <Suspense fallback={<div>Loading...</div>}>
+                    <AdminTable getAllUser={getAllUser} Skeleton={Skeleton} />
+                </Suspense>
             </div >
 
         </>
