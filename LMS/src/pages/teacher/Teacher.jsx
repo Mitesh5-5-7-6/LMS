@@ -1,12 +1,12 @@
-import { useContext } from 'react'
+import React, { lazy, Suspense, useContext } from 'react'
 
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 import MyContext from "../../context/myContext";
 
-import UserInfo from '../../components/userInfo/UserInfo';
-import TeacherTable from '../../components/userInfoTable/TeacherTable';
+const UserInfo = lazy(() => import("../../components/userInfo/UserInfo"));
+const TeacherTable = lazy(() => import("../../components/userInfoTable/TeacherTable"));
 
 const Teacher = () => {
 
@@ -19,13 +19,17 @@ const Teacher = () => {
                 <p className='display-title-head'>Teacher Info</p>
             </div>
             <div className='display-mid'>
-                {user?.role === 'Teacher' &&
-                    <UserInfo data={user} />
-                }
+                <Suspense fallback={<div>Loading...</div>}>
+                    {user?.role === 'Teacher' &&
+                        <UserInfo data={user} />
+                    }
+                </Suspense>
             </div>
-            {user?.role === 'Admin' &&
-                <TeacherTable getAllUser={getAllUser} Skeleton={Skeleton} />
-            }
+            <Suspense fallback={<div>Loading...</div>}>
+                {user?.role === 'Admin' &&
+                    <TeacherTable getAllUser={getAllUser} Skeleton={Skeleton} />
+                }
+            </Suspense>
         </>
     )
 }
