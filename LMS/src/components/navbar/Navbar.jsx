@@ -23,7 +23,10 @@ const Navbar = () => {
 
             <div className="pt-1.5">
                 {user ? (
-                    <p className="user">{user.role}</p>
+                    <p className="user">
+                        {user.role}
+                        {user.role === 'Admin' ? ` - ${user.name}` : ''}
+                    </p>
                 ) : (
                     <button
                         className="login-btn"
