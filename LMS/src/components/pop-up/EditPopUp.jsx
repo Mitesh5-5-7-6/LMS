@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react';
 import toast from "react-hot-toast";
-import './popup.css'
+import './popup.css';
 
 import { Formik, Field, Form } from 'formik';
 
-import { Timestamp, doc, getDoc, setDoc } from "firebase/firestore";
-import { fireDB } from '../../FirebaseFile/firebase'
+import { Timestamp, doc, getDoc, updateDoc } from "firebase/firestore"; // Updated with updateDoc
+import { fireDB } from '../../FirebaseFile/firebase';
 import myContext from '../../context/myContext';
 
 const EditPopup = ({ state, onClose, id }) => {
@@ -39,28 +39,36 @@ const EditPopup = ({ state, onClose, id }) => {
                     time: user.time || Timestamp.now(),
                     date: user.date || "",
                 });
-                setLoading(false);
             }
         } catch (error) {
-            toast.error(error)
+            toast.error(error.message || "Error fetching user data");
+        } finally {
             setLoading(false);
         }
     };
 
     const handleUpdate = async () => {
-        setLoading(true)
+        setLoading(true);
         try {
+            const userRef = doc(fireDB, "users", id);
+            await updateDoc(userRef, {
+                name: update.name,
+                email: update.email,
+                role: update.role,
+                attendance: update.attendance,
+                time: update.time,
+                date: update.date,
+            });
 
-            await setDoc(doc(fireDB, "users", id), update);
             toast.success("Updated successfully");
             getAllUserFunction();
             onClose();
-
         } catch (error) {
-            toast.error(error)
-            setLoading(false)
+            toast.error(error.message || "Error updating user");
+        } finally {
+            setLoading(false);
         }
-    }
+    };
 
     useEffect(() => {
         if (state && id) {

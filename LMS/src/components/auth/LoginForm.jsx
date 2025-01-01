@@ -20,16 +20,17 @@ const LoginForm = () => {
     const navigate = useNavigate();
 
     const context = useContext(myContext);
-    const { setLoading } = context;
+    const { setLoading, getAllUser } = context;
 
     const handleLogin = async (values, { setSubmitting }) => {
         setLoading(true);
         try {
             const users = await signInWithEmailAndPassword(auth, values.email, values.password);
-
             const q = query(collection(fireDB, "users"), where("uid", "==", users.user.uid));
+            console.log("wed", users.user.uid);
             const querySnapshot = await getDocs(q);
             let user = querySnapshot.docs.map(doc => doc.data())[0];
+            console.log(user)
             if (user) {
                 localStorage.setItem("users", JSON.stringify(user));
                 if (user?.role === 'Admin') navigate('/home/dashboard');
